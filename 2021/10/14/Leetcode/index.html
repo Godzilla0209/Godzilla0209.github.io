@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="起点">
-<meta property="og:url" content="http://example.com/2021/10/13/start/index.html">
+  <meta name="description" content="1.Two sum 数组找两个和为目标值的数 方法一：两个for循环（时间长）&#x2F;&#x2F;穷举不推荐、时间复杂度O(n平方)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode刷题日志">
+<meta property="og:url" content="http://example.com/2021/10/14/Leetcode/index.html">
 <meta property="og:site_name" content="子龙の博客">
+<meta property="og:description" content="1.Two sum 数组找两个和为目标值的数 方法一：两个for循环（时间长）&#x2F;&#x2F;穷举不推荐、时间复杂度O(n平方)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/10/13/start/img/9ebb47cb7936daea338886602817d7fc.jpg">
-<meta property="article:published_time" content="2021-10-13T04:41:53.000Z">
-<meta property="article:modified_time" content="2021-10-13T15:47:09.882Z">
+<meta property="article:published_time" content="2021-10-14T09:39:50.000Z">
+<meta property="article:modified_time" content="2021-10-14T14:22:21.919Z">
 <meta property="article:author" content="薛子龙">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/10/13/start/img/9ebb47cb7936daea338886602817d7fc.jpg">
 
-<link rel="canonical" href="http://example.com/2021/10/13/start/">
+<link rel="canonical" href="http://example.com/2021/10/14/Leetcode/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>起点 | 子龙の博客</title>
+  <title>Leetcode刷题日志 | 子龙の博客</title>
   
 
 
@@ -194,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/13/start/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/14/Leetcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -207,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          起点
+          Leetcode刷题日志
         </h1>
 
         <div class="post-meta">
@@ -218,7 +219,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-13 12:41:53 / 修改时间：23:47:09" itemprop="dateCreated datePublished" datetime="2021-10-13T12:41:53+08:00">2021-10-13</time>
+              <time title="创建时间：2021-10-14 17:39:50 / 修改时间：22:22:21" itemprop="dateCreated datePublished" datetime="2021-10-14T17:39:50+08:00">2021-10-14</time>
             </span>
 
           
@@ -239,7 +240,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> <img src="img/9ebb47cb7936daea338886602817d7fc.jpg" alt="9ebb47cb7936daea338886602817d7fc"></p>
+        <p>1.Two sum</p>
+<p>数组找两个和为目标值的数</p>
+<p>方法一：两个for循环（时间长）//穷举不推荐、时间复杂度O(n平方)</p>
+<span id="more"></span> 
+
+<p>方法二：哈希表，交换数组的下标和值，利用ordered_map,把所给数组的数作为key值（<em>table</em> <strong>[</strong> <em>a</em> <strong>[</strong> <em>i</em> <strong>]]</strong> <strong>=</strong> <em>i</em>），每次用target-nums【i】搜索key值，注意用来判断是否找到的语句： <em>if ( table . find ( numberToFind ) != table . end ())；</em></p>
+<p><em>另外，建议在一个for循环内一边插入哈希表一边搜索判断，时间复杂度O（n）</em></p>
+<p><strong>167. Two Sum II - Input array is sorted</strong></p>
+<p><em>当数组是有序数组时，使用双指针法   O（n）省去了插入哈希表的时间</em></p>
+<p><strong>88. Merge Sorted Array</strong></p>
+<p><em>法一：用vector函数，先把nums2插入nums1，在排序</em></p>
+<p><em>法二：双指针，从后面往前取较大值插入，（因为要把nums1作为插入后的数组）注意一开始插入的位置，巧用m–，n–</em></p>
+<p><strong>4. Median of Two Sorted Arrays</strong></p>
+<p><em>法一：使用vector函数，根据长度奇偶返回</em></p>
+<p><em>法二：使用双指针法，时间复杂度更优，代码长一些（注意约束条件）</em></p>
+<p>2.Two Sum II - Input array is sorted</p>
+<p>特征：所给数组为有序数组（递增），找和为特定值的两个数</p>
+<p>双指针法：一层循环，然后设置左指针、右指针（left、right）</p>
+<p> <em>if ( a [ left ] + a [ right ] &lt; target ) left ++;</em></p>
+<p> <em>if ( a [ left ] + a [ right ] &gt; target ) right++;</em></p>
+<p>3.3Sum</p>
+<p>特征：找数组中和为0的三元组（双指针变式）</p>
+<p>先排序后，用for循环确定第一个数并且这个数小于等于0，在剩下的n-1个数中用双指针法while循环</p>
+<p>2sum对应一个循环，3sum对应两重循环，4sum对应三重循环</p>
+<p>注意：</p>
+<p>为了避免vector<int>push_back相同的解，当后面一个数与当前数相同，skip。l</p>
+<p><em>while ( left &lt; right &amp;&amp; a [ left + 1 ] == a [ left ]) left ++; //以免第二个数重复</em></p>
+<p><em>while ( left &lt; right &amp;&amp; a [ right - 1 ] == a [ right ]) right –; //以免第三个数重复</em></p>
+<p>​                    <em>left ++; // 前后指针都移动，下一次判断</em></p>
+<p>​                    <em>right –;</em></p>
+<p> <em>while ( i &lt; n-2 &amp;&amp; a [ i + 1 ] == a [ i ]) i ++; //以免第一个数重复</em></p>
+<p><em>//</em></p>
+<p><em>如果不避免重复，可以选用set防止重复，insert无法插入相同的数据，代码简单一些，但是运算时间会变长！</em></p>
+<p><em>不推荐，时间复杂度和空间复杂度大大增加！如何将set转成vector：</em></p>
+<p><em>set&lt;vector<int>&gt;    return vector&lt;vectro<int>&gt; { ans.begin(),a.end()}</em></p>
+<p><strong>16. 3Sum Closest</strong></p>
+<p><em>双指针变种，比3sum简单，只需要返回三个数的和</em></p>
+<p>先排序后，用for循环确定第一个数，在剩下的n-1个数中用双指针法while循环</p>
+<p>每次都比较一下（target-sum）绝对值大小即可</p>
+<p><strong>454. 4Sum II</strong>  </p>
+<p><strong>O(n^2)</strong></p>
+<p><strong>当完成两两配对，转化成第一类无序two sum</strong></p>
+<p><em>4个数组，两两搭配，两个for循环算出1、2两个数组之和存储进map中并记录出现次数；再两个for循环便求3、4数组中随机元素的和边判断map中是否存在，存在即n++</em></p>
+<p><em>在一层循环的最上面加如下的判断：如果一开始的四个值之和就大于target那么退出循环，如果第一个值加上最后三个最大值小于target，跳过当前数选择下一个。</em></p>
+<p>if(nums[i]+nums[i+1]&gt;target-nums[i+2]-nums[i+3]) break;</p>
+<p>if(nums[i]+nums[n-3]+nums[n-2]+nums[n-1]&lt;target) continue;</p>
+<p><strong>11. Container With Most Water</strong></p>
+<p><em>双指针的小变形，左右指针，指向0和尾部，</em></p>
+<p>关键代码：            </p>
+<p>int h=min(height[left],height[right]);</p>
+<p>​            water=max(water,(right-left)*h);</p>
+<p>​            while(height[left]&lt;=h&amp;&amp;left&lt;right) left++;</p>
+<p>​            while(height[right]&lt;=h&amp;&amp;left&lt;right) right–;    //每次至少移动一下right或者right指针（移动较小的）如果新指向的高比之前的还小，那么skip继续移动（高变小，长度right-left也小了，面积必然减少）</p>
+<p><em>时间复杂度O（n）</em></p>
+<p><strong>42. Trapping Rain Water</strong></p>
+<p><em>从左右向中间计算，计算每一个宽度为1的水</em></p>
+<p>while(left&lt;=right){</p>
+<p>​            if(height[left]&lt;=height[right]){</p>
+<p>​                if(height[left]&gt;=maxleft) maxleft=height[left];    左边最高的-当前高度就是盛水的高度</p>
+<p>​                else res+=maxleft-height[left];        当有更高的墙，更新最大高度</p>
+<p>​                left++;</p>
+<p>​            }</p>
+<p>​            else{</p>
+<p>​                if(height[right]&gt;=maxright) maxright= height[right];</p>
+<p>​                else res+=maxright-height[right];</p>
+<p>​                right–;</p>
+<p>​            }</p>
+<p>​        }</p>
+<p>(10条消息) 【LeetCode】31. Next Permutation 解题报告（Python &amp; C++）_负雪明烛-CSDN博客</p>
+<p>*4.*4Sum</p>
+<p>特征：找与目标值相等的 4 个数</p>
+<p>三重循环即可，两层for循环确定前两个数，回到two sum问题，用 set 可避免重复结果（牺牲时间）</p>
+<p>注意：用while（。。。）来保证四个数都不会重复</p>
+<p>注意set返回格式：</p>
+<p><em>vector &lt; int &gt; out { nums [ i ], nums [ j ], nums [ left ], nums [ right ]};</em></p>
+<p><em>res . insert ( out );</em></p>
+<p><em>5.</em> Remove Duplicates from Sorted Array l、 II</p>
+<p>特征：去除有序序列中的重复数字（允许重复1、2次）</p>
+<p>双指针法(覆盖法)</p>
+<p>当a[i] != a[index-1] 用a[i]覆盖a[index]</p>
+<p> <em>int index =</em> <strong>1/2</strong> <em>; //初始时index和i指针均指向索引为1的位置</em></p>
+<p>​        <em>for ( int i =</em> <strong>1 /2</strong><em>; i &lt; a . size (); i ++) //用i指针扫描数组</em></p>
+<p>​        <em>{</em></p>
+<p>​            <em>if ( a [ i ] != a [ index -</em> <strong>1/2</strong> <em>]) //遇到不等数时，覆盖a[index]，index++</em></p>
+<p>​            <em>{</em></p>
+<p>​                <em>a [ index ] = a [ i ];</em></p>
+<p>​                <em>index ++;</em></p>
+<p>​            <em>} //index最后指向无重复序列末尾</em></p>
+<p>​        <em>}</em></p>
+<p>​        <em>return index ; //返回无重复序列的长度</em></p>
+<p>6.JZ28 数组中出现次数超过一半的数字</p>
+<p>法一：使用消解法或者是叫候选法的时候   第一次选出候选人的时候要记得票数+1，选择一个候选人，重复就票数+1，当票数为0时换候选人，最后留下众数，检验次数。</p>
+<p>法二：使用unordered_map，值作为key，统计出现次数。</p>
+<p><strong>7. Rotate Array</strong></p>
+<p>问题：把数组循环左移</p>
+<p>法一：先复制一个数组，使用额外的数组，索引i用i+k替换，然后把组织好的数组复制过去</p>
+<p>关键步骤： <em>temp[(i+k)%n] = a[i]</em></p>
+<p>法二：多次反转</p>
+<p>Original List                   : 1 2 3 4 5 6 7</p>
+<p>After reversing all numbers     : 7 6 5 4 3 2 1</p>
+<p>After reversing first k numbers : 5 6 7 4 3 2 1</p>
+<p>After revering last n-k numbers : 5 6 7 1 2 3 4 –&gt; Result</p>
+<p>分析：O(n) O(1) 时间不变，节省空间</p>
+<p> <em>reverse ( a . begin (), a . end ()); //反转所有元素</em></p>
+<p> <em>reverse ( a . begin (), a . begin ()+ k ); //反转前k个元素</em></p>
+<p> <em>reverse ( a . begin ()+ k , a . end ()); //反转剩余元素（注意reverse反转区间为前闭后开，故这里为a.begin()+k）</em></p>
+<p>\8. Intersection of Two Arrays</p>
+<p>问题：求两个数组的交集（不能有重复的数）</p>
+<p>方法一： hash 表法，用 set 避免重复</p>
+<p><em>unordered_set</em> <strong>&lt;***int***&gt;</strong> <em>m</em><strong>(<em><strong>nums1</strong></em>.<em><strong>begin</strong></em>(),</strong> <em>nums1</em><strong>.<em><strong>end</strong></em>());</strong> <em>//vector转set，避免重复</em></p>
 
     </div>
 
@@ -287,17 +397,20 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"># 刷题</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/10/14/Leetcode/" rel="next" title="Leetcode刷题日志">
-      Leetcode刷题日志 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/10/13/start/" rel="prev" title="起点">
+      <i class="fa fa-chevron-left"></i> 起点
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
